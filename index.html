@@ -65,7 +65,7 @@
             </li>
           </ul>
           <span class="navbar-text">
-            <a data-toggle="modal" data-target="#loginModal">
+            <a id="btnLoginModal" type="button">
               <span class="fa fa-sign-in">
                 Login
               </span>
@@ -82,7 +82,7 @@
             <h4 class="modal-title">
               Reserve a Table
             </h4>
-            <button class="close" type="button" data-dismiss="modal">
+            <button class="close btn-close" type="button">
               &times;
             </button>
           </div>
@@ -198,10 +198,8 @@
                         placeholder="Time"
                       />
                     </div>
-                  
-                  
                   </div>
-                  <button type="button" class="btn offset-3" data-dismiss="modal">
+                  <button type="button" class="btn offset-3 btn-close">
                     Cancel
                   </button>
                   <button type="button" class="btn btn-primary mr-2">
@@ -233,8 +231,7 @@
           <div class="col-12 col-sm-3 align-self-center">
             <button
               type="button"
-              data-toggle="modal"
-              data-target="#reserveModal"
+              id="btnReserve"
               class="btn btn-lg btn-block btn-warning"
               >Reserve Table</button
             >
@@ -401,7 +398,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h4 class="modal-title">Login</h4>
-            <button class="close" type="button" data-dismiss="modal">
+            <button class="close btn-close" type="button">
               &times;
             </button>
           </div>
@@ -424,7 +421,7 @@
               </div>
           </div>
           <div class="form-row">
-              <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-secondary btn-sm ml-auto btn-close">Cancel</button>
               <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>        
           </div>
           </div>
@@ -516,7 +513,21 @@
                     $("#carouselButton").children("span").addClass('fa-pause');                    
                 }
             });
+        $('#btnLoginModal').click(function() {
+          $('#loginModal').modal('show');
+        });
+
+        $('.btn-close').click(function() {
+          $('#loginModal').modal('hide');
+          $('#reserveModal').modal('hide');  
+        });
+
+        $('#btnReserve').click(function() {
+          $('#reserveModal').modal('show');
+        })
+        
       });
+      
     </script>
   </body>
 </html>
